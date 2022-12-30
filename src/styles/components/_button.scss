@@ -1,0 +1,29 @@
+.button {
+  padding: var(--padding-2);
+  font-size: var(--font-size-3);
+  border-radius: var(--border-radius-2);
+  border: var(--border-size-1) solid var(--dark-blue-300);
+  cursor: pointer;
+
+  flex-grow: 1;
+}
+
+.button--dark-blue {
+  background-color: var(--dark-blue-300);
+  color: var(--white);
+}
+
+.button--light-blue {
+  background-color: var(--light-blue-300);
+  color: var(--dark-blue-300);
+}
+
+.button--gray {
+  background-color: var(--dark-blue-300);
+  color: var(--white);
+}
+
+.button--white {
+  background-color: var(--white);
+  color: var(--dark-blue-300);
+}
