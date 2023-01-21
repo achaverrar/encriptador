@@ -71,7 +71,6 @@ html {
   --border-radius-2: 24px; /* Buttons mobile*/
   /* RESET */
   font-size: 62.5%;
-  /* -webkit-box-sizing: border-box; */
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -82,15 +81,9 @@ html {
   margin: 0;
   padding: 0;
   border: 0;
-  /* -webkit-box-sizing: inherit; */
   box-sizing: inherit;
   vertical-align: baseline;
 }
-
-/* ::-moz-selection {
-  background-color: var(--dark-blue-500);
-  color: var(--white);
-} */
 
 ::selection {
   background-color: var(--dark-blue-500);

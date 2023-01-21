@@ -1,6 +1,6 @@
 dist/
 ideas/
 node_modules/
-scripts/script-complex.js
-images/favicon.ai
-images/og_image.ai
+src/scripts/script_complex.js
+src/images/favicon.ai
+src/images/og_image.ai
