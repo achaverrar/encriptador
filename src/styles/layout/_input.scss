@@ -1,30 +1,54 @@
 .input {
   flex: 1;
-  //
   position: relative;
 }
 
-.input__text {
-  background-color: var(--light-blue-300);
-  font-size: var(--font-size-1);
-  color: var(--dark-blue-300);
+.input-text__container {
   width: 100%;
-  resize: none;
-  outline: none;
+  position: relative;
   flex: 1;
 }
 
-.input__text::placeholder {
-  color: var(--dark-blue-300);
+.input-text {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-size: var(--font-size-1);
+  overflow-wrap: break-word;
 }
 
-.input__text--hidden {
-  position: absolute;
+#input-text--mirror {
+  background-color: var(--light-blue-300);
+  color: var(--dark-blue-300);
+  overflow: hidden;
+}
+
+#input-text--original {
   background-color: transparent;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
+  resize: none;
+  outline: none;
+  scrollbar-gutter: stable;
+  /* scrollbar-gutter: stable both-edges; */
+  /* width: calc(100% + 26px);
+  padding-right: 18px; */
+}
+
+#input-text--original::placeholder {
+  color: var(--light-blue-300);
+  -webkit-text-fill-color: var(--light-blue-500);
+}
+
+#input-text--original::selection {
+  -webkit-text-fill-color: var(--white);
 }
 
 .input__info {
+  opacity: 0;
+}
+
+.with-errors {
+  opacity: 1;
 }
 
 .input__buttons {
@@ -44,7 +68,31 @@
   }
 }
 
-b {
+span {
+  position: relative;
+}
+
+.invalid {
   font-weight: 400;
   color: red;
+}
+
+/* .input-text__container {
+  overflow-y: scroll;
+  -ms-overflow-style: scrollbar;
+}
+
+#input-text--original {
+  overflow: hidden;
+} */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#input-text--original::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#input-text--original {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

@@ -1,9 +1,13 @@
 "use strict";
 const textIn = document.querySelector("#input-text--original");
-const mirror = document.querySelector("#input-text--mirror");
 const textOut = document.querySelector(".output__text");
+const mirror = document.querySelector("#input-text--mirror");
 const boxFound = document.querySelector(".box--found");
 const boxNotFound = document.querySelector(".box--not-found");
+const testString = "¿hasTa qué HORas";
+const invalid = new RegExp(/[^a-z|\s]/);
+const uppercases = new RegExp(/[a-z| ]/);
+const canTranslate = true;
 const errorsContainer = document.querySelector(".input__info");
 let invalidInput = false;
 const INPUT_STATE = {
@@ -25,14 +29,56 @@ const dictionary = {
   toDecrypt: {}, // To be generated dinamically
 };
 
-const patterns = {
-  valid: "a-z ",
-  invalid: "[^a-z ]",
-  linebreaks: "\r|\r\n|\n",
+const charTypes = {
+  specialChars: {
+    isValid: false,
+    pattern: "À-Üà-ü",
+  },
+  uppercases: {
+    isValid: false,
+    pattern: "A-Z",
+  },
+  lowercases: {
+    isValid: true,
+    pattern: "a-z",
+  },
+  numbers: {
+    isValid: false,
+    pattern: "0-9",
+  },
+  linebreaks: {
+    isValid: true,
+    pattern: "\r|\r\n|\n",
+  },
 };
 
 function keysOf(dictionary) {
   return Object.keys(dictionary);
+}
+
+function concatPatternsIfValidIs(boolean) {
+  const types = keysOf(charTypes);
+  const filtered = types.reduce((result, type) => {
+    if (charTypes[type].isValid === boolean) {
+      result.push(charTypes[type].pattern);
+    }
+    return result;
+  }, []);
+  const pattern = filtered.join("|");
+  return pattern;
+}
+
+function generateValidationPattern() {
+  const allowSpecialChars = charTypes.specialChars.isValid;
+  let content = "";
+  if (allowSpecialChars) {
+    content += charTypes.specialChars.regExp;
+    content += concatPatternsIfValidIs(false);
+  } else {
+    content += concatPatternsIfValidIs(true);
+    content += " "; // For empty spaces
+  }
+  validationStrings.valid = `[${content}]`;
 }
 
 function invertDictionary(dictionary) {
@@ -55,39 +101,31 @@ function translateText(original, dictionary) {
   return translation;
 }
 
-// TODO: replace string with text.input
+// TODO: replace string with text.cipher
 function validateInput(string, className) {
   let anyInvalidChar = false;
 
-  // Generate regular expressions for validation
-  const regExpInvalids = new RegExp(patterns.invalid, "g");
-  const regExpLinebreaks = new RegExp(patterns.linebreaks);
-
   // Generate innerHTML for mirror
-  const mirrorContent = string.replace(regExpInvalids, (match) => {
-    if (regExpLinebreaks.test(match)) {
-      return "<br/>";
+  const patternLinebreaks = charTypes.linebreaks.pattern;
+  const pattern = getPatternIfValidIs(false) + patternLinebreaks;
+  const regExp = new RegExp(pattern, "g");
+  const mirrorContent = string.replace(regExp, (match) => {
+    if (patternLinebreaks.test(match)) {
+      return "<br />";
     } else {
       anyInvalidChar = true;
       return `<span class=${className}>${match}</span>`;
     }
   });
   // Update mirror
-  // An extra <br> tag is added to fix bug with synchronization
-  mirror.innerHTML = mirrorContent + "<br/>";
+  mirror.innerHTML = mirrorContent;
 
   return anyInvalidChar;
 }
 
-function init() {
-  textIn.value = "";
-  textIn.focus();
-  dictionary.toDecrypt = invertDictionary(dictionary.toEncrypt);
-}
-
 btnDecrypt.addEventListener("click", () => {
   const cipher = textIn.value;
-  if (!cipher || invalidInput) {
+  if (!cipher && !invalidInput) {
     boxNotFound.classList.remove("hidden");
     boxFound.classList.add("hidden");
     return;
@@ -100,12 +138,13 @@ btnDecrypt.addEventListener("click", () => {
 
 btnCopy.addEventListener("click", () => {
   const copy = textOut.textContent;
+  console.log("copying");
   navigator.clipboard.writeText(copy);
 });
 
 btnEncrypt.addEventListener("click", (e) => {
   const plain = textIn.value;
-  if (!plain || invalidInput) {
+  if (!plain && !invalidInput) {
     boxNotFound.classList.remove("hidden");
     boxFound.classList.add("hidden");
     return;
@@ -116,15 +155,19 @@ btnEncrypt.addEventListener("click", (e) => {
   textOut.textContent = cipher;
 });
 
+function init() {
+  textIn.value = "";
+  dictionary.toDecrypt = invertDictionary(dictionary.toEncrypt);
+}
+
 textIn.addEventListener("input", (e) => {
   const plain = textIn.value;
-  const newInputValidity = validateInput(plain, "invalid");
-  const oldInputValidity = invalidInput;
-  if (newInputValidity !== oldInputValidity) {
+  const invalidNewInput = validateInput(plain, "invalid");
+  if (invalidNewInput !== invalidInput) {
     errorsContainer.classList.toggle("with-errors");
-    invalidInput = !invalidInput;
+    invalidInput = invalidNewInput;
   }
-  /* const container = document.querySelector(".input-text__container");
+  const container = document.querySelector(".input-text__container");
   const offset = mirror.offsetHeight - mirror.clientHeight;
   textIn.style.height = "auto";
   const newHeight = e.target.scrollHeight + offset + "px";
@@ -134,15 +177,7 @@ textIn.addEventListener("input", (e) => {
     container.style.height = newHeight;
   } else {
     container.style.height = minHeight + "px";
-  } */
+  }
 });
-
-textIn.addEventListener("scroll", () => (mirror.scrollTop = textIn.scrollTop));
-
-document
-  .querySelector(".input-text__container")
-  .addEventListener("click", () => {
-    textIn.focus();
-  });
 
 init();

@@ -35,24 +35,19 @@
         <img src="./images/logo.svg" alt="Alura logo" class="logo" />
       </header>
       <section class="input">
-        <!-- <textarea
-          id="input__text"
-          cols="30"
-          rows="6"
-          autofocus
-          class="input__text"
-          placeholder="Ingrese el texto aquí"
-        ></textarea> -->
-        <textarea
-          id="input__text--hidden"
-          cols="30"
-          rows="6"
-          autofocus
-          class="input__text--hidden input__text"
-          placeholder="Ingrese el texto aquí"
-        ></textarea>
-        <div id="input__text" class="input__text" contenteditable="true">
-          Ingrese el texto aquí
+        <div class="input-text__container">
+          <div id="input-text--mirror" class="input-text"></div>
+          <textarea
+            id="input-text--original"
+            cols="30"
+            rows="6"
+            autofocus
+            class="input-text"
+            placeholder="Ingrese el texto aquí"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+          ></textarea>
         </div>
         <div class="container">
           <div class="info input__info">
@@ -68,7 +63,7 @@
                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
               />
             </svg>
-            <p class="info__message">Solo letras minúsculas y sin acentos</p>
+            <p class="info__message">Solo letras, minúsculas y sin acentos</p>
           </div>
           <div class="input__buttons">
             <button class="button button--dark-blue" id="encrypt">
@@ -81,7 +76,7 @@
         </div>
       </section>
       <section class="output">
-        <div class="output__box box--found">
+        <div class="output__box box--found hidden">
           <p class="output__text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
             montes, sit et diam risus scelerisque vitae est. Tortor maecenas
@@ -91,7 +86,7 @@
           </p>
           <button class="button button--white" id="copy">Copiar</button>
         </div>
-        <div class="output__box box--not-found" style="display: none">
+        <div class="output__box box--not-found">
           <div class="output__image">
             <img src="./images/Muñeco.png" alt="" />
           </div>
