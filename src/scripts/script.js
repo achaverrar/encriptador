@@ -1,10 +1,10 @@
 "use strict";
-const textIn = document.querySelector("#input-text--original");
-const mirror = document.querySelector("#input-text--mirror");
-const textOut = document.querySelector(".output__text");
-const boxFound = document.querySelector(".box--found");
-const boxNotFound = document.querySelector(".box--not-found");
-const errorsContainer = document.querySelector(".input__info");
+const textIn = document.querySelector("#inputOriginal");
+const mirror = document.querySelector("#inputMirror");
+const textOut = document.querySelector(".output__result");
+const boxFound = document.querySelector(".output--success");
+const boxNotFound = document.querySelector(".output--failure");
+const errorsContainer = document.querySelector(".error");
 let invalidInput = false;
 const INPUT_STATE = {
   VALID: false,
@@ -124,7 +124,7 @@ textIn.addEventListener("input", (e) => {
     errorsContainer.classList.toggle("with-errors");
     invalidInput = !invalidInput;
   }
-  /* const container = document.querySelector(".input-text__container");
+  /* const container = document.querySelector(".input");
   const offset = mirror.offsetHeight - mirror.clientHeight;
   textIn.style.height = "auto";
   const newHeight = e.target.scrollHeight + offset + "px";
@@ -139,10 +139,8 @@ textIn.addEventListener("input", (e) => {
 
 textIn.addEventListener("scroll", () => (mirror.scrollTop = textIn.scrollTop));
 
-document
-  .querySelector(".input-text__container")
-  .addEventListener("click", () => {
-    textIn.focus();
-  });
+document.querySelector(".input").addEventListener("click", () => {
+  textIn.focus();
+});
 
 init();

@@ -4,25 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- <title>Encriptador</title> -->
-    <title>Encrypter</title>
+    <title>Encriptador | Oracle Next Education</title>
     <meta
       name="description"
-      content="Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist."
+      content="Aplicación para encriptar y desencriptar mensajes como primer reto de la formación de Oracle Next Education en colaboración con Alura Latam."
     />
-    <meta name="author" content="Little Lemon Restaurant" />
+    <meta name="author" content="Ayxa Chaverra Rentería" />
 
-    <meta property="og:title" content="Little Lemon Restaurant" />
+    <meta property="og:title" content="Encriptador | Oracle Next Education" />
     <meta property="og:type" content="website" />
     <!-- <meta property="og:image" content="./images/og_image.jpg" /> -->
     <meta property="og:url" content="https://littlelemon.com/" />
     <meta
       property="og:description"
-      content="Little Lemon is a family-owned Mediterranean restaurant, focused on traditional recipes served with a modern twist."
+      content="Aplicación para encriptar y desencriptar mensajes como primer reto de la formación de Oracle Next Education en colaboración con Alura Latam"
     />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Little Lemon" />
+    <meta property="og:locale" content="es_COL" />
+    <meta
+      property="og:site_name"
+      content="Encriptador | Oracle Next Education"
+    />
     <!-- <link
       rel="shortcut icon"
       href="./images/fav-icon.png"
@@ -31,18 +32,21 @@
   </head>
   <body>
     <main class="main">
-      <header class="logo__container">
+      <header class="logo-container">
         <img src="./images/logo.svg" alt="Alura logo" class="logo" />
       </header>
-      <section class="input">
-        <div class="input-text__container">
-          <div id="input-text--mirror" class="input-text"></div>
+      <section class="input-section">
+        <div class="input">
+          <div
+            id="inputMirror"
+            class="input__textbox input__textbox--mirror"
+          ></div>
           <textarea
-            id="input-text--original"
+            id="inputOriginal"
             cols="30"
             rows="6"
             autofocus
-            class="input-text"
+            class="input__textbox input__textbox--original"
             placeholder="Ingrese el texto aquí"
             autocomplete="off"
             autocorrect="off"
@@ -50,43 +54,43 @@
           ></textarea>
         </div>
         <div class="container">
-          <div class="info input__info">
+          <div class="error">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               fill="currentColor"
-              class="icon info__icon"
+              class="error__icon"
               viewBox="0 0 16 16"
             >
               <path
                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
               />
             </svg>
-            <p class="info__message">Solo letras, minúsculas y sin acentos</p>
+            <p class="error__message">Solo letras, minúsculas y sin acentos</p>
           </div>
           <div class="input__buttons">
-            <button class="button button--dark-blue" id="encrypt">
+            <button class="button button--primary" id="encrypt">
               Encriptar
             </button>
-            <button class="button button--light-blue" id="decrypt">
+            <button class="button button--secondary" id="decrypt">
               Desencriptar
             </button>
           </div>
         </div>
       </section>
-      <section class="output">
-        <div class="output__box box--found hidden">
-          <p class="output__text">
+      <section class="output-section">
+        <div class="output output--success hidden">
+          <p class="output__result">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
             montes, sit et diam risus scelerisque vitae est. Tortor maecenas
             nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit
             elit. Libero, sodales duis fames id diam feugiat aliquet non
             egestas.
           </p>
-          <button class="button button--white" id="copy">Copiar</button>
+          <button class="button button--neutral" id="copy">Copiar</button>
         </div>
-        <div class="output__box box--not-found">
+        <div class="output output--failure">
           <div class="output__image">
             <img src="./images/Muñeco.png" alt="" />
           </div>

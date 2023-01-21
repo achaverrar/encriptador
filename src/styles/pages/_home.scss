@@ -8,18 +8,18 @@
   min-height: 100vh;
 }
 
-.logo__container {
+.logo-container {
   margin-bottom: var(--margin-v11);
   width: 12rem;
 }
 
-.input {
+.input-section {
   display: flex;
   flex-direction: column;
   gap: var(--gutter-2);
 }
 
-.output {
+.output-section {
   margin-left: calc(var(--margin-v8) - var(--margin-v11));
   margin-right: calc(var(--margin-v8) - var(--margin-v11));
   margin-bottom: calc(var(--margin-v8) - var(--margin-v10));
@@ -32,11 +32,11 @@
     row-gap: var(--gutter-2);
   }
 
-  .logo__container {
+  .logo-container {
     margin-bottom: calc(var(--margin-v4) - var(--gutter-2));
   }
 
-  .output {
+  .output-section {
     margin: 0;
   }
 }
@@ -54,16 +54,16 @@
 
     padding-top: var(--margin-v8);
   }
-  .logo__container {
+  .logo-container {
     text-align: center;
     grid-area: logo;
     margin-bottom: var(--margin-v10);
   }
-  .input {
+  .input-section {
     grid-area: input;
     padding-bottom: var(--margin-v9);
   }
-  .output {
+  .output-section {
     grid-area: output;
     max-width: 40rem;
   }

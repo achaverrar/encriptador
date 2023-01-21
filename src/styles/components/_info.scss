@@ -1,14 +1,14 @@
-.info {
+.error {
   display: flex;
   align-items: center;
   gap: var(--gutter-6);
 }
 
-.info__icon {
+.error__icon {
   color: var(--gray-600);
 }
 
-.info__message {
+.error__message {
   font-size: var(--font-size-4);
   color: var(--gray-400);
 }

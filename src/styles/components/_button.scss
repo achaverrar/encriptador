@@ -8,12 +8,12 @@
   flex-grow: 1;
 }
 
-.button--dark-blue {
+.button--primary {
   background-color: var(--dark-blue-300);
   color: var(--white);
 }
 
-.button--light-blue {
+.button--secondary {
   background-color: var(--light-blue-300);
   color: var(--dark-blue-300);
 }
@@ -23,7 +23,7 @@
   color: var(--white);
 }
 
-.button--white {
+.button--neutral {
   background-color: var(--white);
   color: var(--dark-blue-300);
 }
