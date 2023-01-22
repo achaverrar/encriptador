@@ -5,6 +5,7 @@ const textOut = document.querySelector(".output__result");
 const boxFound = document.querySelector(".output--success");
 const boxNotFound = document.querySelector(".output--failure");
 const errorsContainer = document.querySelector(".error");
+const ouputBox = document.querySelector(".output-section");
 let invalidInput = false;
 let showingOutput = false;
 const INPUT_STATE = {
@@ -94,6 +95,7 @@ btnDecrypt.addEventListener("click", () => {
   boxFound.classList.remove("hidden");
   textOut.innerText = plain;
   showingOutput = true;
+  ouputBox.focus();
 });
 
 btnCopy.addEventListener("click", () => {
@@ -113,12 +115,16 @@ btnEncrypt.addEventListener("click", (e) => {
   boxFound.classList.remove("hidden");
   textOut.innerText = cipher;
   showingOutput = true;
+  ouputBox.focus();
 });
 
 textIn.addEventListener("input", (e) => {
   if (showingOutput) {
     textOut.innerText = "";
     showingOutput = false;
+    // TO-DO: add box with instructions instead
+    boxNotFound.classList.remove("hidden");
+    boxFound.classList.add("hidden");
   }
   const plain = textIn.value;
   const newInputValidity = validateInput(plain, "invalid");
@@ -141,11 +147,13 @@ textIn.addEventListener("input", (e) => {
 });
 
 textIn.addEventListener("scroll", () => (mirror.scrollTop = textIn.scrollTop));
-
-document.querySelector(".input-section").addEventListener("click", (e) => {
+/* document.querySelector(".input-section").addEventListener("click", (e) => {
   const closestDiv = e.target.closest("div");
   if (closestDiv.className === "container") return;
   textIn.focus();
-});
+}); */
 
+textIn.addEventListener("click", (e) => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 init();

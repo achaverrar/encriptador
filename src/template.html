@@ -32,7 +32,11 @@
   </head>
   <body>
     <header class="logo-container">
-      <img src="./images/logo.svg" alt="Alura logo" class="logo" />
+      <img
+        src="./images/logo.svg"
+        alt="Logo de Alura"
+        class="logo logo--alura"
+      />
     </header>
     <main class="main">
       <section class="input-section">
@@ -51,6 +55,7 @@
             autocomplete="off"
             autocorrect="off"
             spellcheck="false"
+            tabindex="-1"
           ></textarea>
         </div>
         <div class="container">
@@ -79,15 +84,9 @@
           </div>
         </div>
       </section>
-      <section class="output-section">
+      <section class="output-section" tabindex="-1">
         <div class="output output--success hidden">
-          <p class="output__result">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci
-            montes, sit et diam risus scelerisque vitae est. Tortor maecenas
-            nunc ut laoreet. Eget diam mauris quam quisque ut eget fringilla sit
-            elit. Libero, sodales duis fames id diam feugiat aliquet non
-            egestas.
-          </p>
+          <p class="output__result"></p>
           <button class="button button--neutral" id="copy">Copiar</button>
         </div>
         <div class="output output--failure">
@@ -105,12 +104,14 @@
     </main>
     <footer class="attributions">
       <p>
-        <span class="challenge">Un reto de</span>
-        <a href="#">Oracle Next Education</a>
+        <span id="challenge" class="attributions__description"
+          >Un desafío de</span
+        >
+        <a href="#" class="attributions__link">Oracle Next Education</a>
       </p>
       <p>
-        <span class="code">Solucionado por</span>
-        <a href="#">Ayxa Chaverra Rentería</a>
+        <span id="code" class="attributions__description">Resuelto por</span>
+        <a href="#" class="attributions__link">Ayxa Chaverra Rentería</a>
       </p>
     </footer>
   </body>
