@@ -130,7 +130,7 @@ textIn.addEventListener("input", (e) => {
   const newInputValidity = validateInput(plain, "invalid");
   const oldInputValidity = invalidInput;
   if (newInputValidity !== oldInputValidity) {
-    errorsContainer.classList.toggle("with-errors");
+    errorsContainer.classList.toggle("invisible");
     invalidInput = !invalidInput;
   }
   /* const container = document.querySelector(".input");
