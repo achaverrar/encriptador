@@ -95,7 +95,8 @@ btnDecrypt.addEventListener("click", () => {
   boxFound.classList.remove("hidden");
   textOut.innerText = plain;
   showingOutput = true;
-  ouputBox.focus();
+  const outputPosX = textOut.offsetTop;
+  scroll({ top: outputPosX, behavior: "smooth" });
 });
 
 btnCopy.addEventListener("click", () => {
@@ -115,7 +116,8 @@ btnEncrypt.addEventListener("click", (e) => {
   boxFound.classList.remove("hidden");
   textOut.innerText = cipher;
   showingOutput = true;
-  ouputBox.focus();
+  const outputPosX = textOut.offsetTop;
+  scroll({ top: outputPosX, behavior: "smooth" });
 });
 
 textIn.addEventListener("input", (e) => {
@@ -155,5 +157,9 @@ textIn.addEventListener("scroll", () => (mirror.scrollTop = textIn.scrollTop));
 
 textIn.addEventListener("click", (e) => {
   window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+textOut.addEventListener("click", (e) => {
+  btnCopy.focus();
 });
 init();
