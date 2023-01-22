@@ -100,7 +100,7 @@ btnDecrypt.addEventListener("click", () => {
 });
 
 btnCopy.addEventListener("click", () => {
-  const copy = textOut.textContent;
+  const copy = textOut.innerText;
   navigator.clipboard.writeText(copy);
 });
 
