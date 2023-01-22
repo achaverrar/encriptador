@@ -6,6 +6,7 @@ const boxFound = document.querySelector(".output--success");
 const boxNotFound = document.querySelector(".output--failure");
 const errorsContainer = document.querySelector(".error");
 let invalidInput = false;
+let showingOutput = false;
 const INPUT_STATE = {
   VALID: false,
   EMPTY: true,
@@ -42,10 +43,6 @@ function invertDictionary(dictionary) {
     return result;
   }, {});
   return newDictionary;
-}
-
-function setTextOut(newText) {
-  textOut.textContent = newText;
 }
 
 function translateText(original, dictionary) {
@@ -95,7 +92,8 @@ btnDecrypt.addEventListener("click", () => {
   const plain = translateText(cipher, dictionary.toDecrypt);
   boxNotFound.classList.add("hidden");
   boxFound.classList.remove("hidden");
-  setTextOut(plain);
+  textOut.innerText = plain;
+  showingOutput = true;
 });
 
 btnCopy.addEventListener("click", () => {
@@ -113,10 +111,15 @@ btnEncrypt.addEventListener("click", (e) => {
   const cipher = translateText(plain, dictionary.toEncrypt);
   boxNotFound.classList.add("hidden");
   boxFound.classList.remove("hidden");
-  textOut.textContent = cipher;
+  textOut.innerText = cipher;
+  showingOutput = true;
 });
 
 textIn.addEventListener("input", (e) => {
+  if (showingOutput) {
+    textOut.innerText = "";
+    showingOutput = false;
+  }
   const plain = textIn.value;
   const newInputValidity = validateInput(plain, "invalid");
   const oldInputValidity = invalidInput;
@@ -139,7 +142,9 @@ textIn.addEventListener("input", (e) => {
 
 textIn.addEventListener("scroll", () => (mirror.scrollTop = textIn.scrollTop));
 
-document.querySelector(".input").addEventListener("click", () => {
+document.querySelector(".input-section").addEventListener("click", (e) => {
+  const closestDiv = e.target.closest("div");
+  if (closestDiv.className === "container") return;
   textIn.focus();
 });
 
