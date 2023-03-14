@@ -1,0 +1,16 @@
+.attributions {
+  display: flex;
+  //text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2em;
+  font-size: 1.3rem;
+}
+
+.attributions__description {
+}
+
+.attributions__link {
+  text-decoration: none;
+  font-weight: 700;
+}

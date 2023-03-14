@@ -1,11 +1,13 @@
 .button {
-  padding: var(--padding-2);
+  padding: 2.35rem;
   font-size: var(--font-size-3);
   border-radius: var(--border-radius-2);
   border: var(--border-size-1) solid var(--dark-blue-300);
   cursor: pointer;
 
-  flex-grow: 1;
+  //flex-grow: 1;
+  flex: 1;
+  min-width: min-content;
 }
 
 .button--primary {
@@ -14,7 +16,7 @@
 }
 
 .button--secondary {
-  background-color: var(--light-blue-300);
+  background-color: var(--light-blue-100);
   color: var(--dark-blue-300);
 }
 

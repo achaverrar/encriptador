@@ -1,0 +1,101 @@
+.output-section {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+// min-width: 880px
+@media (min-width: 55em) {
+  .main {
+    gap: 3rem;
+    flex: 1;
+    flex-direction: row;
+  }
+
+  .helper {
+    max-width: 0;
+    flex: 1;
+    transition: max-width 1s ease-in-out;
+  }
+  .input-section {
+    flex: 2;
+    margin-top: 13rem;
+  }
+
+  .output-section {
+    flex: 1.5;
+  }
+
+  .output {
+    height: 100%;
+    word-break: break-word;
+  }
+  .output--failure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .input__textbox {
+    position: absolute;
+  }
+  /* #react-app-ext {
+    display: none;
+  } */
+}
+
+@media (min-width: 80em) {
+  header {
+    width: 12rem;
+    text-align: center;
+  }
+  .main {
+    gap: 8rem;
+  }
+  .helper {
+    max-width: 12rem;
+    height: 100%;
+    transition: all 1s ease-in-out;
+  }
+  .output-section {
+    max-width: 40rem;
+  }
+}
+
+// BEFORE HELPER
+/* .output-section {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+// min-width: 880px
+@media (min-width: 55em) {
+  .input-section {
+    //flex: 1;
+    //flex: 1 0 60%;
+    flex: 1 0 auto;
+    //max-width: 60%;
+    min-width: 58%;
+    max-width: calc(100% - 41rem);
+  }
+  .output-section {
+    flex-grow: 0;
+    flex-shrink: 1;
+    //flex-basis: auto;
+    max-width: 40%;
+  }
+}
+
+@media (min-width: 65em) {
+  .input-section {
+    //flex: 1;
+    //flex: 1 0 60%;
+    flex: 1 0 auto;
+    //max-width: 60%;
+    max-width: 68rem;
+    justify-self: flex-end;
+  }
+  .output-section {
+    flex-grow: 0;
+  }
+} */

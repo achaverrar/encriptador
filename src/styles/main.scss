@@ -1,5 +1,7 @@
-@forward "abstracts/";
+/* @forward "abstracts/";
 @forward "base/";
 @forward "components/";
 @forward "layout/";
 @forward "pages/";
+ */
+@forward "./bundled.scss";

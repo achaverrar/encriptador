@@ -1,0 +1,188 @@
+/* RESET */
+html {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: inherit;
+  vertical-align: baseline;
+  font-family: inherit;
+}
+
+body {
+  min-height: 100vh;
+  height: 100%;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.4rem 1.6rem;
+  gap: 1.3rem;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6.3rem;
+}
+
+.helper {
+  height: 100%;
+  max-width: 0;
+  flex: 0;
+}
+
+.input-section {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6.4rem;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-top: 0.05rem;
+}
+
+/* ERROR DIV WASN'T ABSOLUTELY POSITIONED */
+/* THERE'S A DUPLICATE IN THE FINAL FILE (INPUT) */
+.input__textbox {
+  position: absolute;
+  font-size: 3.2rem;
+  overflow-wrap: break-word;
+  line-height: 150%;
+  max-width: 100%;
+  height: 100%;
+}
+
+.input__textbox--mirror {
+  min-height: 24rem;
+  max-height: 33.4rem;
+  color: darkblue;
+  word-wrap: break-word;
+  overflow-y: hidden;
+}
+
+.input__textbox--original {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  overflow-y: auto;
+  background-color: transparent;
+  -webkit-text-fill-color: transparent;
+  resize: none;
+  outline: none;
+}
+
+.input__textbox--original::placeholder {
+  color: darkblue;
+  -webkit-text-fill-color: darkblue;
+}
+
+.input__textbox--original::selection {
+  -webkit-text-fill-color: white;
+}
+
+.input__textbox--original::-webkit-scrollbar {
+  display: none;
+}
+
+.input__textbox--original {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.output-section {
+  flex: 1;
+  word-break: break-all;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HOME */
+/* min-width: 720px*/
+@media (min-width: 45em) {
+  body {
+    padding: 4rem;
+    gap: 5.4rem;
+  }
+
+  header {
+    margin-top: 3.2rem;
+    margin-bottom: 0;
+  }
+
+  .main {
+    gap: 6.4rem;
+  }
+
+  .input__textbox--mirror {
+    min-height: 24rem;
+    max-height: 33.4rem;
+  }
+}
+
+/* min-width: 880px */
+@media (min-width: 55em) {
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: normal;
+    width: 100%;
+    height: 100%;
+  }
+  /* ERROR DUE TO FLEX VALUES */
+  .helper {
+    max-width: 0;
+    flex: 1;
+    transition: max-width 1s ease-in-out;
+  }
+  .input-section {
+    /* flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 60%; */
+    flex: 2;
+  }
+
+  .output-section {
+    /* flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 40%; */
+    flex: 1;
+  }
+}
+
+/* min-height: 928px */
+@media (min-height: 58em) {
+  .input-section {
+    gap: 7rem;
+  }
+  .input__textbox--mirror {
+    max-height: 52.8rem;
+  }
+}
+
+@media (min-width: 60em) {
+  .main {
+    gap: 8rem;
+  }
+  .helper {
+    max-width: 12rem;
+    height: 100%;
+    transition: all 1s ease-in-out;
+  }
+}

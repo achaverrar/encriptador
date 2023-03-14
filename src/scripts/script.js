@@ -162,4 +162,13 @@ textIn.addEventListener("click", (e) => {
 textOut.addEventListener("click", (e) => {
   btnCopy.focus();
 });
+
+/* function adjustMaxHeight() {
+  const maxHeight = textIn.offsetHeight;
+  mirror.style.maxHeight = maxHeight + "px";
+  console.log(maxHeight);
+} */
+
+//window.onresize = adjustMaxHeight;
+
 init();

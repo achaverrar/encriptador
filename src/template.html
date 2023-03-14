@@ -14,7 +14,7 @@
     <meta property="og:title" content="Encriptador | Oracle Next Education" />
     <meta property="og:type" content="website" />
     <!-- <meta property="og:image" content="./images/og_image.jpg" /> -->
-    <meta property="og:url" content="https://littlelemon.com/" />
+    <meta property="og:url" content="https://mysite.com/" />
     <meta
       property="og:description"
       content="Aplicación para encriptar y desencriptar mensajes como primer reto de la formación de Oracle Next Education en colaboración con Alura Latam"
@@ -31,88 +31,95 @@
     /> -->
   </head>
   <body>
-    <header class="logo-container">
-      <img
-        src="./images/logo.svg"
-        alt="Logo de Alura"
-        class="logo logo--alura"
-      />
-    </header>
-    <main class="main">
-      <section class="input-section">
-        <div class="input">
-          <div
-            id="inputMirror"
-            class="input__textbox input__textbox--mirror"
-          ></div>
-          <textarea
-            id="inputOriginal"
-            cols="30"
-            rows="6"
-            autofocus
-            class="input__textbox input__textbox--original"
-            placeholder="Ingrese el texto aquí"
-            autocomplete="off"
-            autocorrect="off"
-            spellcheck="false"
-            tabindex="-1"
-          ></textarea>
+    <div class="wrapper">
+      <header>
+        <div class="logo-container">
+          <img
+            src="./images/logo.svg"
+            alt="Logo de Alura"
+            class="logo logo--alura"
+          />
         </div>
-        <div class="container">
-          <div class="error invisible">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="error__icon"
-              viewBox="0 0 16 16"
+      </header>
+      <main class="main">
+        <section class="input-section">
+          <div class="input">
+            <div
+              id="inputMirror"
+              class="input__textbox input__textbox--mirror"
+            ></div>
+            <textarea
+              id="inputOriginal"
+              cols="30"
+              rows="6"
+              autofocus
+              class="input__textbox input__textbox--original"
+              placeholder="Ingrese el texto aquí"
+              autocomplete="off"
+              autocorrect="off"
+              spellcheck="false"
+              tabindex="-1"
             >
-              <path
-                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
-              />
-            </svg>
-            <p class="error__message">Solo letras, minúsculas y sin acentos</p>
+            </textarea>
           </div>
-          <div class="input__buttons">
-            <button class="button button--primary" id="encrypt">
-              Encriptar
-            </button>
-            <button class="button button--secondary" id="decrypt">
-              Desencriptar
-            </button>
+          <div class="container">
+            <div class="error invisible">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="error__icon"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
+                />
+              </svg>
+              <p class="error__message">
+                Solo letras, minúsculas y sin acentos
+              </p>
+            </div>
+            <div class="input__buttons">
+              <button class="button button--primary" id="encrypt">
+                Encriptar
+              </button>
+              <button class="button button--secondary" id="decrypt">
+                Desencriptar
+              </button>
+            </div>
           </div>
-        </div>
-      </section>
-      <section class="output-section">
-        <div class="output output--success hidden">
-          <p class="output__result"></p>
-          <button class="button button--neutral" id="copy">Copiar</button>
-        </div>
-        <div class="output output--failure">
-          <div class="output__image">
-            <img src="./images/Muñeco.png" alt="" />
+        </section>
+        <section class="output-section">
+          <div class="output output--success hidden">
+            <p class="output__result"></p>
+            <button class="button button--neutral" id="copy">Copiar</button>
           </div>
-          <div class="output__info">
-            <h2 class="output__title">Ningún mensaje fue encontrado</h2>
-            <p class="output__description">
-              Ingresa el texto que desees encriptar o desencriptar.
-            </p>
+          <div class="output output--failure">
+            <div class="output__image">
+              <img src="./images/Muñeco.png" alt="" />
+            </div>
+            <div class="output__info">
+              <h2 class="output__title">Ningún mensaje fue encontrado</h2>
+              <p class="output__description">
+                Ingresa el texto que desees encriptar o desencriptar.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
-    <footer class="attributions">
-      <p>
-        <span id="challenge" class="attributions__description"
-          >Un desafío de</span
-        >
-        <a href="#" class="attributions__link">Oracle Next Education</a>
-      </p>
-      <p>
-        <span id="code" class="attributions__description">Resuelto por</span>
-        <a href="#" class="attributions__link">Ayxa Chaverra Rentería</a>
-      </p>
-    </footer>
+        </section>
+      </main>
+      <footer class="attributions">
+        <p>
+          <span id="challenge" class="attributions__description"
+            >Un desafío del programa</span
+          >
+          <a href="#" class="attributions__link">Oracle Next Education</a>
+        </p>
+        <p>
+          <span id="code" class="attributions__description">Resuelto por</span>
+          <a href="#" class="attributions__link">Ayxa Chaverra Rentería</a>
+        </p>
+      </footer>
+    </div>
   </body>
 </html>
