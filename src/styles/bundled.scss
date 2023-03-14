@@ -153,6 +153,7 @@ header {
     & > * {
       flex: 1;
       font-family: inherit;
+      font-size: var(--font-size-3);
     }
 
     @media (min-width: 30em) {
@@ -166,7 +167,7 @@ header {
     width: 100%;
     height: 100%;
     max-height: 45vh;
-    font-size: --font-size-1;
+    font-size: var(--font-size-1);
     /*  */
     overflow-wrap: break-word;
     white-space: pre-wrap;
@@ -180,7 +181,6 @@ header {
       background-color: mediumturquoise;
       border: 2px solid turquoise;
       resize: none;
-      font-size: --font-size-1;
     }
   }
 }
@@ -190,6 +190,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+  font-size: var(--font-size-4);
   @media (min-width: 55em) {
     padding-bottom: 3.2rem;
   }
@@ -208,6 +209,7 @@ footer {
   background-color: burlywood;
   border: 2px solid brown;
   text-align: center;
+  font-size: var(--font-size-4);
 }
 
 .hidden {
@@ -252,6 +254,7 @@ footer {
 
 .output {
   &__description {
+    font-size: var(--font-size-3);
   }
   &__image {
   }
@@ -260,6 +263,7 @@ footer {
   &__result {
   }
   &__title {
+    font-size: var(--font-size-2);
   }
   &--failure {
   }
@@ -270,7 +274,7 @@ footer {
 }
 
 .input__textbox--original {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-default);
   background-color: transparent;
   -webkit-text-fill-color: transparent;
 }
