@@ -44,11 +44,15 @@ header {
     grid-template-areas: "logo blank blank blank";
     grid-template-rows: 1fr;
     justify-content: right;
+  }
+}
 
-    .logo-container {
-      grid-area: logo;
-      justify-self: center;
-    }
+.logo-container {
+  display: flex;
+
+  @media (min-width: 55em) {
+    grid-area: logo;
+    justify-self: center;
   }
 }
 
@@ -205,8 +209,6 @@ footer {
 .logo {
   &--alura {
   }
-}
-.logo-container {
 }
 
 .output {
